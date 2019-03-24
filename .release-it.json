@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "beforeStart": "npm run lint"
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "release": true
+  }
+}
