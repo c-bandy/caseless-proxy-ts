@@ -1,5 +1,5 @@
 {
-  "name": "caseless-proxy",
+  "name": "@c-bandy/caseless-proxy",
   "version": "0.1.0",
   "description": "↪ caseless-proxy but in TypeScript.",
   "main": "dist/index.js",
