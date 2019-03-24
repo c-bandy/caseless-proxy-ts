@@ -9,7 +9,7 @@ interface NameMap {
 type Property = string | number | symbol;
 
 function trackPropertyName(property: Property, nameMap: NameMap): void {
-  if (typeof property === 'symbol') { throw new Error('Symbols are not supported.'); }
+  if (typeof property === 'symbol') { return; }
   const canonical = property.toString().toLowerCase();
   if (!(canonical in nameMap)) {
     nameMap[canonical] = property;
@@ -17,13 +17,13 @@ function trackPropertyName(property: Property, nameMap: NameMap): void {
 }
 
 function untrackPropertyName(property: Property, nameMap: NameMap): void {
-  if (typeof property === 'symbol') { throw new Error('Symbols are not supported.'); }
+  if (typeof property === 'symbol') { return; }
   const canonical = property.toString().toLowerCase();
   delete nameMap[canonical];
 }
 
-function getActualPropertyName(property: Property, nameMap: NameMap): string | number {
-  if (typeof property === 'symbol') { throw new Error('Symbols are not supported.'); }
+function getActualPropertyName(property: Property, nameMap: NameMap): Property {
+  if (typeof property === 'symbol') { return property; }
   const canonical = property.toString().toLowerCase();
   if (canonical in nameMap) {
     return nameMap[canonical];
